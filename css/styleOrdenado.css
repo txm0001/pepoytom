@@ -378,6 +378,8 @@ footer .ref {
 .ventanaEmergente img {
     max-width: 100%;
     height: auto;
+    max-height: 50vh;
+    object-fit: cover;
 }
 
 .ventanaEmergente p {
@@ -680,6 +682,11 @@ footer .ref {
 
 /* live shows */
 
+.liveShowEmergente {
+    flex-direction: column;
+    background-color: var(--white-color);
+    color: var(--blue-color);
+}
 
 .liveShowEmergente:hover {
     cursor: pointer;
@@ -693,6 +700,15 @@ footer .ref {
 .liveShowEmergente .imgLiveShow {
     cursor: pointer;
     /* box-shadow: #000 0 0 10px; */
+    max-height: 30vh;
+    width: auto;
+    object-fit: cover;
+
+}
+
+.liveShowEmergente h4, p {
+    padding: 0.5rem;
+    margin: 0;
 }
 
 .liveShowEmergente h4 {
@@ -709,7 +725,7 @@ footer .ref {
     position: absolute;
     max-width: 25vw;
     /* z-index: 2; */
-    top: 80vh;
+    top: 40vh;
     left: 60vw;
     display: none;
 }
@@ -732,7 +748,7 @@ footer .ref {
     position: absolute;
     max-width: 17vw;
     /* z-index: 2; */
-    top: 80vh;
+    top: 50vh;
     left: 30vw;
     display: none;
 
@@ -798,6 +814,19 @@ footer .ref {
     animation: fadeIn 0.5s ease-in forwards;
 }
 
+.reset-button {
+    display: none;
+    position: fixed;
+    font-size: 1.4rem;
+    top: 20px;
+    left: 50%;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    color: green;
+}
 
 @media (max-width: 480px) {
 
