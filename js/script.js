@@ -73,20 +73,27 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Window Onload Event Listener ---
 window.onload = function () {
     // --- Variables for Obras ---
+    const floatingImage = document.getElementById('floatingImage');
     const obrasTodas = document.getElementById('obrasEmergentes');
     const closeObra1 = document.getElementById('closeObra1');
     const closeObra2 = document.getElementById('closeObra2');
     const closeObra3 = document.getElementById('closeObra3');
     const closeObra4 = document.getElementById('closeObra4');
+    const closeObra5 = document.getElementById('closeObra5');
+    const closeObra6 = document.getElementById('closeObra6');
+    const closeObra7 = document.getElementById('closeObra7');
     const obra1 = document.getElementById('obra1');
     const obra2 = document.getElementById('obra2');
     const obra3 = document.getElementById('obra3');
     const obra4 = document.getElementById('obra4');
+    const obra5 = document.getElementById('obra5');
+    const obra6 = document.getElementById('obra6');
+    const obra7 = document.getElementById('obra7');
 
 
     // --- Event Listener for Showing Obras ---
     document.getElementById('obras').addEventListener('click', () => {
-        [obra1, obra2, obra3, obra4].forEach(obra => {
+        [obra1, obra2, obra3, obra4, obra5, obra6, obra7].forEach(obra => {
             obra.style.display = 'flex';
         });
         floatingImage.style['animation-play-state'] = 'paused';
@@ -118,6 +125,24 @@ window.onload = function () {
         closeObra4.addEventListener('touchstart', () => {
             obra4.style.display = 'none';
         });
+        closeObra5.addEventListener('click', () => {
+            obra5.style.display = 'none';
+        });
+        closeObra5.addEventListener('touchstart', () => {
+            obra5.style.display = 'none';
+        });
+        closeObra6.addEventListener('click', () => {
+            obra6.style.display = 'none';
+        });
+        closeObra6.addEventListener('touchstart', () => {
+            obra6.style.display = 'none';
+        });
+        closeObra7.addEventListener('click', () => {
+            obra7.style.display = 'none';
+        });
+        closeObra7.addEventListener('touchstart', () => {
+            obra7.style.display = 'none';
+        });
     });
 
     // --- Make Obras Draggable ---
@@ -125,6 +150,37 @@ window.onload = function () {
     makeElementDraggable(obra2);
     makeElementDraggable(obra3);
     makeElementDraggable(obra4);
+    makeElementDraggable(obra5);
+    makeElementDraggable(obra6);
+    makeElementDraggable(obra7);
+
+    // --- Toggle synopsis visibility for Obras ---
+    document.querySelectorAll('#obrasEmergentes .ventanaEmergente').forEach(obra => {
+        const description = obra.querySelector('.textDescription');
+        const title = description && description.querySelector('h3');
+        if (!description || !title) return;
+
+        description.querySelectorAll('p:not(.date)').forEach(paragraph => {
+            paragraph.classList.add('sinopsis');
+        });
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'synopsis-toggle';
+        toggle.textContent = '+';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Mostrar sinopsis');
+        title.insertAdjacentElement('afterend', toggle);
+
+        toggle.addEventListener('click', event => {
+            event.preventDefault();
+            event.stopPropagation();
+            const expanded = obra.classList.toggle('synopsis-open');
+            toggle.textContent = expanded ? '-' : '+';
+            toggle.setAttribute('aria-expanded', String(expanded));
+            toggle.setAttribute('aria-label', expanded ? 'Ocultar sinopsis' : 'Mostrar sinopsis');
+        });
+    });
 
     // --- Event Listener for iUniversal Video ---
 document.getElementById('iuniversalPic').addEventListener('click', (event) => {
@@ -272,15 +328,18 @@ window.addEventListener('click', (event) => {
     const laboratoriosTodos = document.getElementById('laboratoriosEmergentes');
     const closeLaboratorio1 = document.getElementById('closeLab1');
     const closeLaboratorio2 = document.getElementById('closeLab2');
+    const closeLaboratorio3 = document.getElementById('closeLab3');
     const laboratorio1 = document.getElementById('laboratorio1');
     const laboratorio2 = document.getElementById('laboratorio2');
+    const laboratorio3 = document.getElementById('laboratorio3');
     const archivosLabs = document.getElementById('absoluteArchivesLab');
     const archivosLab1 = document.getElementsByClassName('laboratorio1Arch');
     const archivosLab2 = document.getElementsByClassName('laboratorio2Arch');
+    const archivosLab3 = document.getElementsByClassName('laboratorio3Arch');
 
     // --- event listerners para mostrar laboratorios ---
     document.getElementById('laboratorios').addEventListener('click', () => {
-        [laboratorio1, laboratorio2].forEach(laboratorio => {
+        [laboratorio1, laboratorio2, laboratorio3].forEach(laboratorio => {
             laboratorio.style.display = 'flex';
             archivosLabs.style.display = 'initial';
             for (let i = 0; i < archivosLabs.children.length; i++) {
@@ -316,10 +375,26 @@ window.addEventListener('click', (event) => {
                 elemento.style.display = 'none'; // Reemplaza 'none' con el estilo que quieras aplicar
             }
         });
+
+        closeLaboratorio3.addEventListener('click', () => {
+            laboratorio3.style.display = 'none';
+            for (let elemento of archivosLab3) {
+                elemento.style.display = 'none';
+            }
+        });
+        closeLaboratorio3.addEventListener('touchstart', () => {
+            laboratorio3.style.display = 'none';
+            for (let elemento of archivosLab3) {
+                elemento.style.display = 'none';
+            }
+        });
+
     });
     // --- Make Laboratorios Draggable ---
     makeElementDraggable(laboratorio1);
     makeElementDraggable(laboratorio2);
+    makeElementDraggable(laboratorio3);
+
 };
 
 // --- Variables para Residencias ---
@@ -327,13 +402,16 @@ const residenciasTodos = document.getElementById('residenciasEmergentes');
 const closeResidencia1 = document.getElementById('closeResidencia1');
 const closeResidencia2 = document.getElementById('closeResidencia2');
 const closeResidencia3 = document.getElementById('closeResidencia3');
+const closeResidencia4 = document.getElementById('closeResidencia4');
 const residencia1 = document.getElementById('residencia1');
 const residencia2 = document.getElementById('residencia2');
 const residencia3 = document.getElementById('residencia3');
+const residencia4 = document.getElementById('residencia4');
+
 
 // --- Event Listener for Showing Residencias ---
 document.getElementById('residencias').addEventListener('click', () => {
-    [residencia1, residencia2, residencia3].forEach(residencia => {
+    [residencia1, residencia2, residencia3, residencia4].forEach(residencia => {
         residencia.style.display = 'flex';
     });
     floatingImage.style['animation-play-state'] = 'paused';
@@ -359,11 +437,20 @@ document.getElementById('residencias').addEventListener('click', () => {
     closeResidencia3.addEventListener('touchstart', () => {
         residencia3.style.display = 'none';
     });
+
+    closeResidencia4.addEventListener('click', () => {
+        residencia4.style.display = 'none';
+    });
+    closeResidencia4.addEventListener('touchstart', () => {
+        residencia4.style.display = 'none';
+    });
 });
+
 // --- Make Residencias Draggable ---
 makeElementDraggable(residencia1);
 makeElementDraggable(residencia2);
 makeElementDraggable(residencia3);
+makeElementDraggable(residencia4);
 
 // --- Event Listener for Silent Walks Residencia ---
 document.getElementById('silentWalksPic1').addEventListener('click', (event) => {
@@ -416,8 +503,6 @@ window.addEventListener('click', (event) => {
         }
     }
 });
-
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
