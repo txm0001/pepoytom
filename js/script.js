@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "shhhhPulperia-video",
       "angelPlacenta-video",
       "residenciaTecnopolis2023-video",
+      "perspectivaDelHuevo-video",
     ];
 
     iframeIds.forEach((id) => {
@@ -209,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "container-shhhhPulperiaVideo",
       "container-angelPlacentaVideo",
       "container-residenciaTecnopolis2023Video",
+      "container-perspectivaDelHuevoVideo",
     ];
 
     multimediaContainers.forEach((id) => {
@@ -342,6 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("obra5"),
     document.getElementById("obra6"),
     document.getElementById("obra7"),
+    document.getElementById("obra8"),
   ];
 
   const obrasCloseButtons = [
@@ -352,6 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ["closeObra5", "obra5"],
     ["closeObra6", "obra6"],
     ["closeObra7", "obra7"],
+    ["closeObra8", "obra8"],
   ];
 
   if (obrasButton) {
@@ -764,6 +768,17 @@ document.addEventListener("DOMContentLoaded", () => {
     iframeId: "iteracionN4-video",
     closeId: null,
     src: "https://www.youtube.com/embed/0jHLfidkfbc?autoplay=1&controls=0",
+  });
+
+  //==========================================================
+  // LA PERSPECTIVA DEL HUEVO
+  //==========================================================
+  setupIframeMedia({
+    triggerId: "perspectivaDelHuevoPic",
+    containerId: "container-perspectivaDelHuevoVideo",
+    iframeId: "perspectivaDelHuevo-video",
+    closeId: null,
+    src: "https://www.youtube.com/embed/rDDRcD-38Jc?si=rDsZAkIxL46MmFMD&controls=0&autoplay=1",
   });
 
   // =========================================================
