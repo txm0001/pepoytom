@@ -560,15 +560,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const agNosEnVera2024 = document.getElementById("agNosEnVera2024");
 
+  const oroLodo = document.getElementById("oroLodo");
+
   const closeJGLolla = document.getElementById("closeJGLolla");
 
   const closeAGNosEnVera = document.getElementById("closeAGNosEnVera");
+
+  const closeOroLodo = document.getElementById("closeOroLodo");
 
   if (colabs) {
     colabs.addEventListener("click", (event) => {
       event.stopPropagation();
 
-      showWindows([jgLolla2024, agNosEnVera2024]);
+      showWindows([jgLolla2024, agNosEnVera2024, oroLodo]);
     });
   }
 
@@ -590,6 +594,15 @@ document.addEventListener("DOMContentLoaded", () => {
     closeAGNosEnVera.addEventListener("touchstart", close);
   }
 
+  if (closeOroLodo && oroLodo) {
+    const close = () => {
+      hideWindow(oroLodo);
+    };
+
+    closeOroLodo.addEventListener("click", close);
+    closeOroLodo.addEventListener("touchstart", close);
+  }
+  
   // =========================================================
   // VIDEO JG LOLLA
   // =========================================================

@@ -232,8 +232,11 @@ footer .ref {
 /* Imagen flotante */
 .floating-image {
     position: fixed;
+    width: 12vw;
+    height: auto;
     top: 0;
     left: 0;
+
     animation: floatAnim 20s infinite;
     transition: transform 0.5s ease-in;
 }
@@ -430,7 +433,7 @@ footer .ref {
     animation-delay: 0.30s;
 }
 
-#absoluteArchivesLab > * {
+#absoluteArchivesLab>* {
     animation: ventanaFadeIn 0.7s ease-out both;
 }
 
@@ -673,16 +676,15 @@ footer .ref {
     top: 30vh;
     left: 0vw;
     height: 35vh;
-
 }
 
 /* mas emergentes */
-#orolodo {
+#oroLodo {
     position: absolute;
-    top: 50vh;
-    left: 10vw;
+    top: 40vh;
+    left: 5vw;
     z-index: 14;
-    background-color: #ff0000;
+    width: 20vw;
 }
 
 #masEmergentes img {
@@ -796,6 +798,7 @@ footer .ref {
 /* live shows */
 
 .liveShowEmergente {
+    display: none;
     flex-direction: column;
     background-color: var(--white-color);
     color: var(--blue-color);
